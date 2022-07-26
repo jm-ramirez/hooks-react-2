@@ -23,17 +23,35 @@ export const MyVideoGames = () => {
     };
 
     console.log(game);
+
+    const action = {
+      type: 'create',
+      payload: game
+    };
+
+    dispatch(action);
+  };
+
+  const deleteGame = id => {
+    const action = {
+      type: 'delete',
+      payload: id
+    };
+
+    dispatch(action);
   };
 
   return (
     <div>
         <h1>This are my video games</h1>
 
-        <p>Number of video games: 15</p>
+        <p>Number of video games: {games.length}</p>
         <ul>
-            <li>Gta</li>
-            <li>Fifa 22</li>
-            <li>Mario Bros</li>
+          {games?.map(game => (
+            <li key={game.id}>
+              {game.title} &nbsp; <button onClick={e => deleteGame(game.id)}>x</button>
+            </li>
+          ))}
         </ul>
 
         <h3>Add games</h3>
