@@ -6,6 +6,10 @@ const init = () => {
 }
 
 export const MyVideoGames = () => {
+  //useReducer - Es similiar a useState, se utiliza para manejar el estado local de nuestros componentes, algunos beneficios con respecto a useState serian:
+  //Nos permite manejar estados “complejos” por medio de una función reductora.
+  //Un estado complejo es aquel que tiene una estructura de varios niveles, por ejemplo: un objeto de objetos que contiene arrays.
+  
   const [games, dispatch] = useReducer(reducerGame, [], init)
 
   useEffect(() => {
